@@ -9,10 +9,11 @@ An uber simple, "collection" style way to create breadcrumbs in `Laravel 5.1 <ht
 ================================================================================
 
 1. ``composer require snetty/laravel-simple-breadcrumbs``
-2. Add ``'Snetty\LaravelSimpleBreadcrumbs\ServiceProvider'`` to your service providers in ``/config/app.php``
-3. Type hint the class in your controller ``public function index(Request $request, Breadcrumbs $breadcrumbs)``
-4. Pass the object to your view ``return view('sites.index', compact('sites', 'breadcrumbs'));``
-5. Render the object ``{!! $breadcrumbs->render() !!}``
+2. ``php artisan vendor:publish``
+3. Add ``'Snetty\LaravelSimpleBreadcrumbs\ServiceProvider'`` to your service providers in ``/config/app.php``
+4. Type hint the class in your controller ``public function index(Request $request, Breadcrumbs $breadcrumbs)``
+5. Pass the object to your view ``return view('sites.index', compact('sites', 'breadcrumbs'));``
+6. Render the object ``{!! $breadcrumbs->render() !!}``
 
 ================================================================================
  Usage
