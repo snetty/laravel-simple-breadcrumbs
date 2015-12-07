@@ -1,0 +1,25 @@
+{
+    "name": "snetty/laravel-simple-breadcrumbs",
+    "description": "A simple Laravel-style way to create breadcrumbs in Laravel 5+.",
+    "keywords": [
+        "laravel"
+    ],
+    "homepage": "https://github.com/snetty/laravel-simple-breadcrumbs",
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.*",
+        "illuminate/view": "5.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Simon Stevens",
+            "email": "simon@mousepilot.co.uk"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Snetty\\LaravelSimpleBreadcrumbs\\": "src/"
+        }
+    }
+}
