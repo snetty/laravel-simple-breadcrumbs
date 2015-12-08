@@ -19,6 +19,8 @@ An uber simple, "collection" style way to create breadcrumbs in `Laravel 5.1 <ht
  Usage
 ================================================================================
 
-Breadcrumbs are added to your controllers thus ``$breadcrumbs->add('/the/url', 'The Link Name');``
+Breadcrumbs are added to your controllers like this: ``$breadcrumbs->add('/the/url', 'The Link Name');``,
+or you can add multiple at once like this: ``$breadcrumbs->add(['/your-url' => 'Your Title', '/another/url'
+=> 'Another Title']);``.
 
 It is suggested that you add your index breadcrumb in the controller.

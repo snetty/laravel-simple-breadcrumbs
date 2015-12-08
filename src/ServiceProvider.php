@@ -1,13 +1,23 @@
-<?php 
+<?php
 
 namespace Snetty\LaravelSimpleBreadcrumbs;
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 
-class ServiceProvider extends LaravelServiceProvider {
-
+class ServiceProvider extends LaravelServiceProvider
+{
+    /**
+     * Whether or not to defer the registration.
+     *
+     * @var boolean
+     */
     protected $defer = true;
 
+    /**
+     * What services does the ServiceProviders provide?
+     *
+     * @return array
+     */
     public function provides()
     {
         return ['Snetty\LaravelSimpleBreadcrumbs\Breadcrumbs'];

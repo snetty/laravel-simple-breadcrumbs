@@ -2,18 +2,50 @@
 
 namespace Snetty\LaravelSimpleBreadcrumbs;
 
-class Breadcrumbs extends \Illuminate\Support\Collection{
+use Illuminate\Support\Collection;
 
-	public static function start($url, $title){
-		return new self([(object) compact('url', 'title')]);
-	}
+class Breadcrumbs extends Collection
+{
+    /**
+     * Initialize the breadcrumbs.
+     *
+     * @param  string $url
+     * @param  string $title
+     * @return \Illuminate\Support\Collection
+     */
+    public static function start($url, $title)
+    {
+        return new self([(object) compact('url', 'title')]);
+    }
 
-	public function add($url, $title){
-		$this->push((object) compact('url', 'title'));
-		return $this;
-	}
+    /**
+     * Add one or more items to the breadcrumbs.
+     *
+     * @param string|array $urls
+     * @param string|void  $title
+     */
+    public function add($urls, $title = null)
+    {
+        if ( ! is_array($urls) && is_null($title) ) {
+            // It is not an array, add only one item.
+            $this->push((object) ['url' => $urls, 'title' => $title]);
+        } else {
+            // It is an array, add each of the items in the array.
+            foreach ($urls as $item => $title) {
+                $this->push((object) ['url' => $item, 'title' => $title]);
+            }
+        }
 
-	public function render(){
-		return view('vendor.snetty.laravel-simple-breadcrumbs.breadcrumbs', ['breadcrumbs' => $this])->render();
-	}
+        return $this;
+    }
+
+    /**
+     * Render the breadcrumbs on the page.
+     *
+     * @return \Illuminate\Contracts\View\Factory
+     */
+    public function render()
+    {
+        return view('vendor.snetty.laravel-simple-breadcrumbs.breadcrumbs', ['breadcrumbs' => $this])->render();
+    }
 }
